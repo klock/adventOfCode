@@ -1,8 +1,8 @@
-package fr.klock.dev.training;
+package fr.klock.dev.training.adventOfCode.year2020;
 
 import java.util.Arrays;
 
-public class AdventOfCode2020 {
+public class DayOne {
 
     public boolean sumIs2020(int... entries) {
         return Arrays.stream(entries).sum() == 2020;
