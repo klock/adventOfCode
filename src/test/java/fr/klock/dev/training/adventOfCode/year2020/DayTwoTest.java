@@ -1,12 +1,15 @@
 package fr.klock.dev.training.adventOfCode.year2020;
 
+import fr.klock.dev.training.adventOfCode.FileUtils;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@DisplayName("Advent Of Code 2020 - Day 2")
 class DayTwoTest {
 
     public static final String ENTRY1 = "1-3 a: abcde";
@@ -35,5 +38,14 @@ class DayTwoTest {
     @DisplayName("Case 1-3: Number of valid passwords")
     void validateManyPasswords() {
         assertThat(new DayTwo().getNumberOfValidPasswords(List.of(ENTRY1, ENTRY2, ENTRY3))).isEqualTo(2);
+    }
+
+    @Test
+    @DisplayName("Number of valid passwords in whole database")
+    void getNumberOfValidPasswordsInDatabase() throws IOException {
+        String[] expenseReportAsString = FileUtils.loadInput(this, "day-two.txt");
+        long numberOfValidPasswords = new DayTwo().getNumberOfValidPasswords(List.of(expenseReportAsString));
+
+        assertThat(numberOfValidPasswords).isEqualTo(546);
     }
 }

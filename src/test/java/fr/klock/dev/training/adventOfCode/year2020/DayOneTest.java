@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@DisplayName("Advent Of Code 2020 - Day One")
+@DisplayName("Advent Of Code 2020 - Day 1")
 public class DayOneTest {
 
     @Test
