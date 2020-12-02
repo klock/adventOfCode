@@ -8,8 +8,6 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -22,22 +20,6 @@ public class AdventOfCode2020Test {
     class DayOne {
 
         @Test
-        @DisplayName("Sum of 2 int is 2020")
-        void sumIs2020() {
-            AdventOfCode2020 adventOfCode2020 = new AdventOfCode2020();
-            boolean result = adventOfCode2020.sumIs2020(2019, 1);
-            assertThat(result).isTrue();
-        }
-
-        @Test
-        @DisplayName("Sum of 2 int is not 2020")
-        void sumIsNot2020() {
-            AdventOfCode2020 adventOfCode2020 = new AdventOfCode2020();
-            boolean result = adventOfCode2020.sumIs2020(20, 1);
-            assertThat(result).isFalse();
-        }
-
-        @Test
         void find2EntriesThatSumTo2020() {
             AdventOfCode2020 adventOfCode2020 = new AdventOfCode2020();
             int[] entriesThatSumTo2020 = adventOfCode2020.find2EntriesThatSumTo2020(new int[]{1721, 979, 366, 299, 675, 1456});
@@ -48,15 +30,15 @@ public class AdventOfCode2020Test {
         }
 
         @Test
-        void productOf2ExpenseReportEntries() {
+        void productOf2ExpenseReportEntriesPartOne() {
             AdventOfCode2020 adventOfCode2020 = new AdventOfCode2020();
             int[] entriesThatSumTo2020 = adventOfCode2020.find2EntriesThatSumTo2020(new int[]{1721, 979, 366, 299, 675, 1456});
-            int product = adventOfCode2020.multiply2ExpenseReportEntries(entriesThatSumTo2020[0], entriesThatSumTo2020[1]);
+            int product = adventOfCode2020.multiplyExpenseReportEntries(entriesThatSumTo2020);
             assertThat(product).isEqualTo(514579);
         }
 
         @Test
-        void testPuzzleInput() throws IOException {
+        void testPuzzleInputPartOne() throws IOException {
             String input = loadInput("2020", "day-one.txt");
             String[] expenseReportAsString = input.split("\r\n");
             int[] expenseReportAsInteger = Arrays.stream(expenseReportAsString)
@@ -66,9 +48,44 @@ public class AdventOfCode2020Test {
 
             AdventOfCode2020 adventOfCode2020 = new AdventOfCode2020();
             int[] entriesThatSumTo2020 = adventOfCode2020.find2EntriesThatSumTo2020(expenseReportAsInteger);
-            int result = adventOfCode2020.multiply2ExpenseReportEntries(entriesThatSumTo2020[0], entriesThatSumTo2020[1]);
+            int result = adventOfCode2020.multiplyExpenseReportEntries(entriesThatSumTo2020);
 
             assertThat(result).isEqualTo(618144);
+        }
+
+        @Test
+        void find3EntriesThatSumTo2020() {
+            AdventOfCode2020 adventOfCode2020 = new AdventOfCode2020();
+            int[] entriesThatSumTo2020 = adventOfCode2020.find3EntriesThatSumTo2020(new int[]{1721, 979, 366, 299, 675, 1456});
+            assertThat(entriesThatSumTo2020).isNotNull();
+            assertThat(entriesThatSumTo2020.length).isEqualTo(3);
+            assertThat(entriesThatSumTo2020[0]).isEqualTo(979);
+            assertThat(entriesThatSumTo2020[1]).isEqualTo(366);
+            assertThat(entriesThatSumTo2020[2]).isEqualTo(675);
+        }
+
+        @Test
+        void productOf3ExpenseReportEntriesPartTwo() {
+            AdventOfCode2020 adventOfCode2020 = new AdventOfCode2020();
+            int[] entriesThatSumTo2020 = adventOfCode2020.find3EntriesThatSumTo2020(new int[]{1721, 979, 366, 299, 675, 1456});
+            int product = adventOfCode2020.multiplyExpenseReportEntries(entriesThatSumTo2020);
+            assertThat(product).isEqualTo(241861950);
+        }
+
+        @Test
+        void testPuzzleInputPartTwo() throws IOException {
+            String input = loadInput("2020", "day-one.txt");
+            String[] expenseReportAsString = input.split("\r\n");
+            int[] expenseReportAsInteger = Arrays.stream(expenseReportAsString)
+                    .map(Integer::parseInt)
+                    .collect(Collectors.toList())
+                    .stream().mapToInt(i -> i).toArray();
+
+            AdventOfCode2020 adventOfCode2020 = new AdventOfCode2020();
+            int[] entriesThatSumTo2020 = adventOfCode2020.find3EntriesThatSumTo2020(expenseReportAsInteger);
+            int result = adventOfCode2020.multiplyExpenseReportEntries(entriesThatSumTo2020);
+
+            assertThat(result).isEqualTo(173538720);
         }
     }
 

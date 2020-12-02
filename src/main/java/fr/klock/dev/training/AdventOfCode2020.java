@@ -1,8 +1,11 @@
 package fr.klock.dev.training;
 
+import java.util.Arrays;
+
 public class AdventOfCode2020 {
-    public boolean sumIs2020(int a, int b) {
-        return (a+b) == 2020;
+
+    public boolean sumIs2020(int... entries) {
+        return Arrays.stream(entries).sum() == 2020;
     }
 
     public int[] find2EntriesThatSumTo2020(int[] expenseReport) {
@@ -18,7 +21,27 @@ public class AdventOfCode2020 {
         return null;
     }
 
-    public int multiply2ExpenseReportEntries(int a, int b) {
-        return a*b;
+    public int[] find3EntriesThatSumTo2020(int[] expenseReport) {
+        for (int i = 0; i < expenseReport.length; i++) {
+            for (int j = i; j < expenseReport.length; j++) {
+                for (int k = j; k < expenseReport.length; k++) {
+                    int a = expenseReport[i];
+                    int b = expenseReport[j];
+                    int c = expenseReport[k];
+                    if (sumIs2020(a, b, c)) {
+                        return new int[]{a, b, c};
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    public int multiplyExpenseReportEntries(int... entries) {
+        int product = 1;
+        for (int entry : entries) {
+            product = product * entry;
+        }
+        return product;
     }
 }
