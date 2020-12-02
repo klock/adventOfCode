@@ -15,4 +15,14 @@ public class DayTwo {
                 .count();
     }
 
+    public boolean validatePasswordAccordingToLetterPositionPolicy(String entry) {
+        return new PasswordPolicyLetterPosition(entry)
+                .validatePassword();
+    }
+
+    public long getNumberOfValidPasswordsAccordingToLetterPositionPolicy(List<String> passwordDatabase) {
+        return passwordDatabase.stream()
+                .filter(this::validatePasswordAccordingToLetterPositionPolicy)
+                .count();
+    }
 }
