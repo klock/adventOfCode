@@ -1,6 +1,7 @@
-package fr.klock.dev.training.adventOfCode.year2020;
+package fr.klock.dev.training.adventOfCode.year2020.day1;
 
 import fr.klock.dev.training.adventOfCode.FileUtils;
+import fr.klock.dev.training.adventOfCode.year2020.day1.DayOne;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -33,7 +34,7 @@ public class DayOneTest {
 
     @Test
     void testPuzzleInputPartOne() throws IOException {
-        String[] expenseReportAsString = FileUtils.loadInput(this, "day-one.txt");
+        String[] expenseReportAsString = FileUtils.loadInput(this, "expense-report.txt");
         int[] expenseReportAsInteger = Arrays.stream(expenseReportAsString)
                 .map(Integer::parseInt)
                 .collect(Collectors.toList())
@@ -67,7 +68,7 @@ public class DayOneTest {
 
     @Test
     void testPuzzleInputPartTwo() throws IOException {
-        String[] expenseReportAsString = FileUtils.loadInput(this, "day-one.txt");
+        String[] expenseReportAsString = FileUtils.loadInput(this, "expense-report.txt");
         int[] expenseReportAsInteger = Arrays.stream(expenseReportAsString)
                 .map(Integer::parseInt)
                 .collect(Collectors.toList())

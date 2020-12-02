@@ -1,6 +1,7 @@
-package fr.klock.dev.training.adventOfCode.year2020;
+package fr.klock.dev.training.adventOfCode.year2020.day2;
 
 import fr.klock.dev.training.adventOfCode.FileUtils;
+import fr.klock.dev.training.adventOfCode.year2020.day2.DayTwo;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -43,7 +44,7 @@ class DayTwoTest {
     @Test
     @DisplayName("Number of valid passwords in whole database")
     void getNumberOfValidPasswordsInDatabase() throws IOException {
-        String[] expenseReportAsString = FileUtils.loadInput(this, "day-two.txt");
+        String[] expenseReportAsString = FileUtils.loadInput(this, "password-database.txt");
         long numberOfValidPasswords = new DayTwo().getNumberOfValidPasswords(List.of(expenseReportAsString));
 
         assertThat(numberOfValidPasswords).isEqualTo(546);

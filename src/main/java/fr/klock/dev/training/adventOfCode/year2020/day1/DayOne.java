@@ -1,4 +1,4 @@
-package fr.klock.dev.training.adventOfCode.year2020;
+package fr.klock.dev.training.adventOfCode.year2020.day1;
 
 import java.util.Arrays;
 
