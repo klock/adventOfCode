@@ -8,8 +8,8 @@ import java.nio.charset.StandardCharsets;
 
 public class FileUtils {
 
-    public static String loadInput(Object classs, String resourcePath) throws IOException {
+    public static String[] loadInput(Object classs, String resourcePath) throws IOException {
         InputStream resourceAsStream = classs.getClass().getResourceAsStream(resourcePath);
-        return IOUtils.toString(resourceAsStream, StandardCharsets.UTF_8);
+        return IOUtils.toString(resourceAsStream, StandardCharsets.UTF_8).split("\r\n");
     }
 }

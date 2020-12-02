@@ -33,8 +33,7 @@ public class DayOneTest {
 
     @Test
     void testPuzzleInputPartOne() throws IOException {
-        String input = FileUtils.loadInput(this, "day-one.txt");
-        String[] expenseReportAsString = input.split("\r\n");
+        String[] expenseReportAsString = FileUtils.loadInput(this, "day-one.txt");
         int[] expenseReportAsInteger = Arrays.stream(expenseReportAsString)
                 .map(Integer::parseInt)
                 .collect(Collectors.toList())
@@ -68,8 +67,7 @@ public class DayOneTest {
 
     @Test
     void testPuzzleInputPartTwo() throws IOException {
-        String input = FileUtils.loadInput(this, "day-one.txt");
-        String[] expenseReportAsString = input.split("\r\n");
+        String[] expenseReportAsString = FileUtils.loadInput(this, "day-one.txt");
         int[] expenseReportAsInteger = Arrays.stream(expenseReportAsString)
                 .map(Integer::parseInt)
                 .collect(Collectors.toList())
