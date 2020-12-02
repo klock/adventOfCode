@@ -2,6 +2,8 @@ package fr.klock.dev.training.adventOfCode.year2020;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.Map;
+
 public class DayTwo {
 
     public boolean validatePasswordAgainstPolicy(String policy, String password) {
@@ -10,6 +12,12 @@ public class DayTwo {
         int countMatches = StringUtils.countMatches(password, passwordPolicy.getLetter());
 
         return passwordPolicy.getMinOccurences() <= countMatches && countMatches <= passwordPolicy.getMaxOccurences();
+    }
+
+    public long getNumberOfValidPasswords(Map<String, String> passwordDatabase) {
+        return passwordDatabase.entrySet().stream()
+                .filter(entry -> validatePasswordAgainstPolicy(entry.getKey(), entry.getValue()))
+                .count();
     }
 
     public static class PasswordPolicy {
