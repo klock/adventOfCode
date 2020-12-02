@@ -4,14 +4,14 @@ import java.util.List;
 
 public class DayTwo {
 
-    public boolean validatePasswordAgainstPolicy(String entry) {
-        return new PasswordPolicyNumberOfLetter(entry)
+    public boolean validatePasswordAccordingToLetterNumberPolicy(String entry) {
+        return new PasswordPolicyLetterNumber(entry)
                 .validatePassword();
     }
 
-    public long getNumberOfValidPasswords(List<String> passwordDatabase) {
+    public long getNumberOfValidPasswordsAccordingToLetterNumberPolicy(List<String> passwordDatabase) {
         return passwordDatabase.stream()
-                .filter(this::validatePasswordAgainstPolicy)
+                .filter(this::validatePasswordAccordingToLetterNumberPolicy)
                 .count();
     }
 
