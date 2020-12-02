@@ -5,7 +5,7 @@ import java.util.List;
 public class DayTwo {
 
     public boolean validatePasswordAgainstPolicy(String entry) {
-        return new PasswordPolicy(entry)
+        return new PasswordPolicyNumberOfLetter(entry)
                 .validatePassword();
     }
 

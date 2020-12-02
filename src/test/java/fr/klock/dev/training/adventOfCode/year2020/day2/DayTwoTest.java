@@ -1,7 +1,6 @@
 package fr.klock.dev.training.adventOfCode.year2020.day2;
 
 import fr.klock.dev.training.adventOfCode.FileUtils;
-import fr.klock.dev.training.adventOfCode.year2020.day2.DayTwo;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
