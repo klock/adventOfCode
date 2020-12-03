@@ -55,4 +55,15 @@ public class TobogganTest {
             }
         }
     }
+
+    @Test
+    void getNumberOfEncounteredTrees() {
+        Toboggan toboggan =  Toboggan.initFrom(MatrixUtils.repeatPattern(MatrixUtils.readFromPattern(PATTERN), 2));
+
+        toboggan.rideSlope(1, 3);
+
+        int numberOfEncounteredTrees = toboggan.getNumberOfEncounteredTrees();
+
+        assertThat(numberOfEncounteredTrees).isEqualTo(7);
+    }
 }

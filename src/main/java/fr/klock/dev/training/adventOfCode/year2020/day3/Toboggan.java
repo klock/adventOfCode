@@ -5,6 +5,7 @@ import fr.klock.dev.training.adventOfCode.MatrixUtils;
 public class Toboggan {
 
     private final char[][] matrix;
+    private int numberOfEncounteredTrees = 0;
 
     public Toboggan(char[][] matrix) {
         this.matrix = matrix;
@@ -31,6 +32,11 @@ public class Toboggan {
             line[i] = 'O';
         } else if (step == '#') {
             line[i] = 'X';
+            numberOfEncounteredTrees++;
         }
+    }
+
+    public int getNumberOfEncounteredTrees() {
+        return numberOfEncounteredTrees;
     }
 }
