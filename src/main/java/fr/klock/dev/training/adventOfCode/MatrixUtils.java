@@ -16,6 +16,18 @@ public class MatrixUtils {
         return matrix;
     }
 
+    public static char[][] readFromPattern(String[] lines) {
+        char[][] matrix = new char[lines.length][lines[0].length()];
+        for (int i = 0; i < lines.length; i++) {
+
+            for (int j = 0; j < lines[i].length(); j++) {
+                matrix[i][j] = lines[i].charAt(j);
+
+            }
+        }
+        return matrix;
+    }
+
     public static char[][] repeatPattern(char[][] matrix, int repetition) {
         char[][] repeatedMatrix = new char[matrix.length][matrix[0].length * (repetition + 1)];
 

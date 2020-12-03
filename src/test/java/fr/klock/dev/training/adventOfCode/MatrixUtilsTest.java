@@ -1,6 +1,7 @@
 package fr.klock.dev.training.adventOfCode;
 
 import fr.klock.dev.training.adventOfCode.year2020.day3.Toboggan;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
@@ -28,6 +29,34 @@ class MatrixUtilsTest {
     @DisplayName("Extract area pattern to matrix")
     void readPatternToMatrix() {
         char[][] matrix = MatrixUtils.readFromPattern(PATTERN);
+
+        char[][] expectedPattern = new char[][]{
+                {'.', '.', '#', '#', '.', '.', '.', '.', '.', '.', '.'},
+                {'#', '.', '.', '.', '#', '.', '.', '.', '#', '.', '.'},
+                {'.', '#', '.', '.', '.', '.', '#', '.', '.', '#', '.'},
+                {'.', '.', '#', '.', '#', '.', '.', '.', '#', '.', '#'},
+                {'.', '#', '.', '.', '.', '#', '#', '.', '.', '#', '.'},
+                {'.', '.', '#', '.', '#', '#', '.', '.', '.', '.', '.'},
+                {'.', '#', '.', '#', '.', '#', '.', '.', '.', '.', '#'},
+                {'.', '#', '.', '.', '.', '.', '.', '.', '.', '.', '#'},
+                {'#', '.', '#', '#', '.', '.', '.', '#', '.', '.', '.'},
+                {'#', '.', '.', '.', '#', '#', '.', '.', '.', '.', '#'},
+                {'.', '#', '.', '.', '#', '.', '.', '.', '#', '.', '#'}
+        };
+        assertThat(matrix.length).isEqualTo(expectedPattern.length);
+        for (int i = 0; i < matrix.length; i++) {
+            assertThat(matrix[i].length).isEqualTo(expectedPattern[i].length);
+            for (int j = 0; j < matrix[i].length; j++) {
+                assertThat(matrix[i][j]).isEqualTo(expectedPattern[i][j]);
+            }
+        }
+    }
+
+    @Test
+    @DisplayName("Extract area pattern lines to matrix")
+    void readPatternLinesToMatrix() {
+        String[] lines = PATTERN.split(StringUtils.LF);
+        char[][] matrix = MatrixUtils.readFromPattern(lines);
 
         char[][] expectedPattern = new char[][]{
                 {'.', '.', '#', '#', '.', '.', '.', '.', '.', '.', '.'},
