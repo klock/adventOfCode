@@ -16,4 +16,19 @@ public class Toboggan {
         }
         return matrix;
     }
+
+    public char[][] repeat(char[][] matrix, int repetition) {
+        char[][] repeatedMatrix = new char[matrix.length][matrix[0].length * (repetition + 1)];
+
+        for (int i = 0; i < matrix.length; i++) {
+            for (int k = 1; k <= repetition; k++) {
+                for (int j = 0; j < matrix[i].length; j++) {
+                    repeatedMatrix[i][j] = matrix[i][j];
+                    repeatedMatrix[i][k * matrix[i].length + j] = matrix[i][j];
+                }
+            }
+        }
+
+        return repeatedMatrix;
+    }
 }
