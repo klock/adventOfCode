@@ -1,10 +1,13 @@
 package fr.klock.dev.training.adventOfCode.year2020.day3;
 
+import fr.klock.dev.training.adventOfCode.FileUtils;
 import fr.klock.dev.training.adventOfCode.MatrixUtils;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+
+import java.io.IOException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -66,4 +69,18 @@ public class TobogganTest {
 
         assertThat(numberOfEncounteredTrees).isEqualTo(7);
     }
+
+    @Test
+    void testPuzzleInputPartOne() throws IOException {
+        String[] slopeLines = FileUtils.loadInput(this, "slope.txt");
+
+        Toboggan toboggan = Toboggan.initFrom(MatrixUtils.repeatPattern(MatrixUtils.readFromPattern(slopeLines), 500));
+
+        toboggan.rideSlope(1, 3);
+
+        int numberOfEncounteredTrees = toboggan.getNumberOfEncounteredTrees();
+
+        assertThat(numberOfEncounteredTrees).isEqualTo(232);
+    }
+
 }
